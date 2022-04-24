@@ -1,0 +1,78 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Products API",
+        "description": "Manage products and reviews",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
+    "paths": {
+        "/products": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Laptop"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Surf the web and code all on the same machine!"
+                                            },
+                                            "price": {
+                                                "type": "number",
+                                                "example": 399.99
+                                            },
+                                            "stock": {
+                                                "type": "integer",
+                                                "exmaple": 50
+                                            },
+                                            "rating": {
+                                                "type": "number",
+                                                "example": 4.5
+                                            },
+                                            "product_date": {
+                                                "type": "string",
+                                                "example": "2020-01-01"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }, 
+            "post": {
+
+            }
+        },
+        "/products/{product_id}": {
+            "get": {
+
+            },
+            "put": {
+
+            },
+            "delete": {
+
+            }
+        }
+    }
+}
