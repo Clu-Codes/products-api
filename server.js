@@ -1,7 +1,8 @@
 const express = require('express');
 const routes = require('./controllers');
 const swaggerUI = require('swagger-ui-express');
-const swaggerDoc = require("./swagger.json");
+const swaggerV1 = require('./swagger-v1.json');
+const swaggerV2 = require('./swagger-v2.json');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -14,9 +15,14 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 app.use(
-  '/docs', 
-  swaggerUI.serveFiles(swaggerDoc, { swaggerOptions }),
-  swaggerUI.setup(swaggerDoc)
+  '/docs/v1', 
+  swaggerUI.serveFiles(swaggerV1, { swaggerOptions }),
+  swaggerUI.setup(swaggerV1)
+);
+app.use(
+  '/docs/v2', 
+  swaggerUI.serveFiles(swaggerV2, { swaggerOptions }),
+  swaggerUI.setup(swaggerV2)
 );
 
 app.listen(PORT, () => {
